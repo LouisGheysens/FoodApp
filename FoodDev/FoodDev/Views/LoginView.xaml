@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:DemoApp.Helpers"
+             xmlns:converters="clr-namespace:FoodDev.Converters"
+             xmlns:behaviors="clr-namespace:FoodDev.Behaviors"
+             xmlns:vm="clr-namespace:FoodDev.ViewModels"
+             x:Class="FoodDev.Views.LoginView"
+             Visual="Material">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:TextToBoolConverter x:Key="dataConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid Padding="20" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <StackLayout Grid.Row="0" VerticalOptions="Center">
+                <Label Text="Login" FontFamily="CabinSketch"
+                       TextColor="Purple" FontSize="40" HorizontalOptions="Center" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Spacing="10">
+                <Entry Placeholder="Gebruikersnaam" Text="{Binding Username}"
+                       BackgroundColor="Transparent"
+                       x:Name="EntryUsername"
+                       HorizontalOptions="FillAndExpand">
+                    <Entry.Behaviors>
+                        <behaviors:NotNullBehavior x:Name="UserNN" />
+                    </Entry.Behaviors>
+                </Entry>
+
+
+                <Entry Placeholder="Wachtwoord" Text="{Binding Password}"
+                       IsPassword="True" BackgroundColor="Transparent"
+                       x:Name="EntryPassword"
+                       HorizontalOptions="FillAndExpand">
+                    <Entry.Behaviors>
+                        <behaviors:NotNullBehavior x:Name="PasswordNN" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Button Text="Login" HorizontalOptions="Center" BackgroundColor="Purple"
+                        TextColor="White" WidthRequest="200" HeightRequest="60" CornerRadius="20"
+                        Command="{Binding LoginCommand}" IsEnabled="{Binding Disable}">
+                    <Button.Triggers>
+                    <MultiTrigger TargetType="Button">
+                        <MultiTrigger.Conditions>
+                                <BindingCondition Binding="{Binding Source={x:Reference EntryUsername},
+                                Path=Text, Converter={StaticResource dataConverter}}" Value="True" />
+                                <BindingCondition Binding="{Binding Source={x:Reference EntryPassword},
+                                Path=Text, Converter={StaticResource dataConverter}}" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="IsEnabled" Value="True" />
+                        </MultiTrigger>
+                    </Button.Triggers>
+                </Button>
+
+                <Label Text="Nieuwe gebruikers: " />
+
+                <Button Text="Registreer" HorizontalOptions="Center" BackgroundColor="DarkOrange"
+                        TextColor="White" WidthRequest="200" HeightRequest="60" CornerRadius="20"
+                        Command="{Binding RegisterCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

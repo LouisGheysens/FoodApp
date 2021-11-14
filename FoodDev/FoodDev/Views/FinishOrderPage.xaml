@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodDev.Views.FinishOrderPage">
+    <ContentPage.Content>
+        <!--<StackLayout>
+            <Button Text="Genereer PDF" Clicked="ButtonPdfClicked" Command="{Binding GeneratePdf}" />
+            <Button Text="Verzend PDF" Clicked="ButtonMailClicked" Command="{Binding SendPdf}" />
+            <Button Text="Plaats een melding" Clicked="ButtonMeldingClicked" Command="{Binding Notification}" />
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>

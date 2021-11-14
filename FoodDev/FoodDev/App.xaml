@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodDev.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <Color x:Key="TransparentColor">Transparant</Color>
+        
+        <!--Colors for the light theme-->
+        <Color x:Key="LightPageBackgroundColor">WhiteSmoke</Color>
+        <Color x:Key="LightSecondaryBackgroundColor">#B2DF</Color>
+        <Color x:Key="LightInnerBackgroundColor">#f1f1f3</Color>
+        <Color x:Key="LightCounterBackGroundColor">LightGray</Color>
+        <Color x:Key="LightPrimaryTextColor">Black</Color>
+        <Color x:Key="LightSecondaryTextColor">Gray</Color>
+        <Color x:Key="LightContextTextColor">Black</Color>
+        <Color x:Key="LightFooterTextColor">#E84275</Color>
+        <Color x:Key="LightDefaultButtonColor">#455A64</Color>
+        <Color x:Key="LightUpDownButtonColor">#E84275</Color>
+        <Color x:Key="LightTitleTextColor">#E84275</Color>
+        <Color x:Key="LightContentTextColor">#0AE596</Color>
+        
+        <!--Colors for the dark theme-->
+        <Color x:Key="DarkPageBackgroundColor">#212540</Color>
+        <Color x:Key="DarkSecondaryBackgroundColor">#212540</Color>
+        <Color x:Key="DarkInnerBackgroundColor">#19CEB3</Color>
+        <Color x:Key="DarkCounterBackGroundColor">LightGray</Color>
+        <Color x:Key="DarkPrimaryTextColor">White</Color>
+        <Color x:Key="DarkSecondaryTextColor">LightGray</Color>
+        <Color x:Key="DarkContextTextColor">Black</Color>
+        <Color x:Key="DarkFooterTextColor">#D62B70</Color>
+        <Color x:Key="DarkDefaultButtonColor">#19CEB3</Color>
+        <Color x:Key="DarkUpDownButtonColor">#D62B70</Color>
+        <Color x:Key="DarkTitleTextColor">#D62B70</Color>
+        <Color x:Key="DarkContentTextColor">#19CEB3</Color>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor"
+                    Value="{AppThemeBinding Light={StaticResource LightDefaultButtonColor},
+                Dark={StaticResource DarkDefaultButtonColor}}" />
+
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightSecondaryTextColor},
+                Dark={StaticResource DarkSecondaryTextColor}}" />
+            <Setter Property="HeightRequest" Value="45" />
+            <Setter Property="WidthRequest" Value="190" />
+            <Setter Property="CornerRadius" Value="18" />
+        </Style>
+
+        <Style x:Key="PrimaryLabel" TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor},
+                Dark={StaticResource DarkSecondaryTextColor}}" />
+        </Style>
+
+        <Style x:Key="SecondaryLabel" TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor},
+                Dark={StaticResource DarkSecondaryTextColor}}" />
+        </Style>
+
+        <Style x:Key="PrimaryLabelHeader" TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor},
+                Dark={StaticResource DarkSecondaryTextColor}}" />
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+
+        <Style x:Key="PrimaryLabelSubHeader" TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor},
+                Dark={StaticResource DarkSecondaryTextColor}}" />
+            <Setter Property="FontSize" Value="30" />
+        </Style>
+
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>
